@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IoT MQTT Dashboard</title>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body style="font-family: Arial">
+  <h2>🔥 IoT MQTT Dashboard</h2>
+
+  <p><b>Temperature:</b> <span id="temp">--</span> °C</p>
+  <p><b>Humidity:</b> <span id="hum">--</span> %</p>
+  <p><b>Device:</b> <span id="dev">--</span></p>
+
+  <p><b>Last ACK:</b> <span id="ack">--</span></p>
+
+<script>
+const socket = io();
+
+socket.on("mqtt_data", data => {
+  document.getElementById("temp").innerText = data.temperature;
+  document.getElementById("hum").innerText = data.humidity;
+  document.getElementById("dev").innerText = data.device;
+});
+
+socket.on("mqtt_ack", ack => {
+  document.getElementById("ack").innerText = ack;
+});
+</script>
+</body>
+</html>
