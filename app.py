@@ -3,7 +3,7 @@ from flask_socketio import SocketIO
 import paho.mqtt.client as mqtt
 import json
 
-APP_VERSION = "IoT API v1 – CI/CD disabled"
+APP_VERSION = "IoT API v2 – CI/CD enabled"
 
 MQTT_BROKER = "broker.hivemq.com"
 DATA_TOPIC = "iot/wokwi/data"
